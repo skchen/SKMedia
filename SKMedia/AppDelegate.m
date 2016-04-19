@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 
+static NSString * const kDropboxAppKey = @"f6dgw0acnckx10m";
+static NSString * const kDropboxAppSecret = @"4g243mgpzed021b";
+
+#import <DropboxSDK/DropboxSDK.h>
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +21,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    DBSession *dbSession = [[DBSession alloc]
+                            initWithAppKey:kDropboxAppKey
+                            appSecret:kDropboxAppSecret
+                            root:kDBRootDropbox]; // either kDBRootAppFolder or kDBRootDropbox
+    [DBSession setSharedSession:dbSession];
+    
     return YES;
 }
 
@@ -42,6 +53,19 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation {
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+            // At this point you can start making API calls
+        }
+        return YES;
+    }
+    // Add whatever other url handling code your app requires here
+    return NO;
 }
 
 #pragma mark - Core Data stack
