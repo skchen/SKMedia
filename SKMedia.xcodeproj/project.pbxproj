@@ -16,6 +16,7 @@
 		829412DE1CC602DD002F6594 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 829412DC1CC602DD002F6594 /* LaunchScreen.storyboard */; };
 		829412E91CC602DD002F6594 /* SKMediaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 829412E81CC602DD002F6594 /* SKMediaTests.m */; };
 		829412F41CC602DE002F6594 /* SKMediaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 829412F31CC602DE002F6594 /* SKMediaUITests.m */; };
+		829413051CC60EED002F6594 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829413041CC60EED002F6594 /* DropboxSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		829412EF1CC602DD002F6594 /* SKMediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKMediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		829412F31CC602DE002F6594 /* SKMediaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKMediaUITests.m; sourceTree = "<group>"; };
 		829412F51CC602DE002F6594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		829413041CC60EED002F6594 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				829413051CC60EED002F6594 /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +106,7 @@
 		829412CA1CC602DD002F6594 /* SKMedia */ = {
 			isa = PBXGroup;
 			children = (
+				829413031CC60EED002F6594 /* Frameworks */,
 				829412CE1CC602DD002F6594 /* AppDelegate.h */,
 				829412CF1CC602DD002F6594 /* AppDelegate.m */,
 				829412D11CC602DD002F6594 /* ViewController.h */,
@@ -141,6 +145,14 @@
 				829412F51CC602DE002F6594 /* Info.plist */,
 			);
 			path = SKMediaUITests;
+			sourceTree = "<group>";
+		};
+		829413031CC60EED002F6594 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				829413041CC60EED002F6594 /* DropboxSDK.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +431,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SKMedia/Frameworks",
+				);
 				INFOPLIST_FILE = SKMedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMedia;
@@ -430,6 +446,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SKMedia/Frameworks",
+				);
 				INFOPLIST_FILE = SKMedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMedia;
@@ -502,6 +522,7 @@
 				829412FA1CC602DE002F6594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		829412FB1CC602DE002F6594 /* Build configuration list for PBXNativeTarget "SKMediaTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +531,7 @@
 				829412FD1CC602DE002F6594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		829412FE1CC602DE002F6594 /* Build configuration list for PBXNativeTarget "SKMediaUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +540,7 @@
 				829413001CC602DE002F6594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
